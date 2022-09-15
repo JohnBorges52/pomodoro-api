@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 const db = require('./configs/db.config');
 
 var indexRouter = require('./routes/index');
@@ -15,6 +16,11 @@ var user_stickersRouter = require('./routes/user_stickers');
 
 
 var app = express();
+const cors = require('cors');
+app.use(cors());
+
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
