@@ -5,15 +5,17 @@ const { Client } = require('pg');
 const SCHEMA_PATH = './db/schema';
 const SEEDS_PATH = './db/seeds';
 
-const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT } = process.env;
+const { DATABASE_URL, PGDATABASE, PGHOST, PGPASSWORD, PGPORT, PGUSER } = process.env;
+
 const fs = require("fs").promises;
 
 const connObj = {
-  user: DB_USER,
-  host: DB_HOST,
-  password: DB_PASSWORD,
-  port: DB_PORT,
-  database: DB_DATABASE,
+  DATABASE_URL: DATABASE_URL,
+  PGDATABASE: PGDATABASE,
+  PGHOST: PGHOST,
+  PGPASSWORD: PGPASSWORD,
+  PGPORT: PGPORT,
+  PGUSER: PGUSER,
 }
 
 const runMigrations = async db => {
