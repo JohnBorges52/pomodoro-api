@@ -1,9 +1,9 @@
 // Database connections
-const { Pool } = require('pg');
+const { Client } = require('pg');
 
 const { HOSTNAME, PORT, DATABASE, USERNAME, PASSWORD } = process.env;
 
-const pool = new Pool({
+const client = new Client({
   HOSTNAME: HOSTNAME,
   PORT: PORT,
   DATABASE: DATABASE,
@@ -13,11 +13,11 @@ const pool = new Pool({
 
 })
 
-pool.connect().then(() => {
+client.connect().then(() => {
   console.log("Database connection established.")
 }).catch(e => {
   console.error(e)
   throw new Error(e);
 })
 
-module.exports = pool;
+module.exports = client;
