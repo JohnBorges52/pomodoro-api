@@ -18,7 +18,7 @@ var user_stickersRouter = require('./routes/user_stickers');
 var app = express();
 const cors = require('cors');
 app.use(cors({
-  origin: "*"
+  origin: "https://pomodoro-api.onrender.com/"
 }));
 
 
